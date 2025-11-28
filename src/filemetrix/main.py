@@ -1,20 +1,17 @@
-import logging
 import os
 import sys
 from datetime import datetime
 
-import asyncio
-
 from src.filemetrix.api.v1 import repo_workflow_controller, repo_discovery, repo_metrics, pid_fetcher, health
-from src.filemetrix.infra.commons import app_settings, send_mail
+from src.filemetrix.infra.commons import app_settings, send_mail, get_project_details
 from src.filemetrix.infra.db import ensure_database_exists, create_tables
 
 # Add the src directory to the Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.environ["BASE_DIR"] = os.getenv("BASE_DIR", base_dir)
+print(os.environ["BASE_DIR"])
 
-from akmi_utils import commons as a_commons
 
 
 from contextlib import asynccontextmanager
@@ -50,7 +47,7 @@ def auth_header(
             )
 
 
-project_details = a_commons.get_project_details(
+project_details = get_project_details(
     base_dir=os.getenv("BASE_DIR"),
     keys=["name", "version", "description", "title"],
 )
@@ -193,12 +190,16 @@ async def root():
         }
     )
 
+
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+    num_workers = max(1, os.cpu_count() or 1)
+    logging.info(f"=====Starting server with {num_workers} workers on port {EXPOSE_PORT} =====")
     uvicorn.run(
         f"{__name__}:app",
         host="0.0.0.0",
         port=int(EXPOSE_PORT),
         workers=1,
         factory=False,
-        reload=RELOAD_ENABLE,
+        reload=app_settings.RELOAD_ENABLE,
     )

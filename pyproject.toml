@@ -6,14 +6,18 @@ readme = "README.md"
 title = "FileMetrix Service"
 requires-python = ">=3.12.8"
 dependencies = [
-    "akmi-utils>=0.1.6.2",
     "asyncio>=3.4.3",
     "datahugger",
     "dynaconf>=3.2.11",
+    "fastapi>=0.122.0",
+    "locust>=2.42.5",
+    "pika>=1.3.2",
     "psycopg2-binary>=2.9.10",
     "requests>=2.32.4",
     "sickle>=0.7.0",
     "sqlmodel>=0.0.24",
+    "tomli>=2.3.0",
+    "uvicorn>=0.38.0",
 ]
 [tool.uv.sources]
 datahugger = { git = "https://github.com/ekoi/datahugger.git", rev = "pid-fetcher" }

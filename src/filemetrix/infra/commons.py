@@ -1,5 +1,7 @@
 import logging
 import os
+
+import tomli
 from dynaconf import Dynaconf
 import smtplib
 from email.mime.text import MIMEText
@@ -15,6 +17,11 @@ if not os.environ.get("BASE_DIR"):
 _raw_app_settings = Dynaconf(root_path=f'{os.environ["BASE_DIR"]}/conf', settings_files=["*.toml"],
                     environments=True)
 
+def get_project_details(base_dir: str, keys: list):
+    with open(os.path.join(base_dir, 'pyproject.toml'), 'rb') as file:
+        package_details = tomli.load(file)
+    poetry = package_details['project']
+    return {key: poetry[key] for key in keys}
 
 class SettingsWrapper:
     """Wrap dynaconf object and provide attribute-style access with fallbacks.

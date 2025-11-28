@@ -1,0 +1,303 @@
+2025-11-27 10:51:06,518 DEBUG Using selector: KqueueSelector
+2025-11-27 10:51:06,548 INFO start up
+2025-11-27 10:51:06,573 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 10:51:06,573 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 10:51:06,573 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 10:51:06,601 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 10:51:06,601 INFO Retrying email send in 2 seconds...
+2025-11-27 10:51:08,603 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 10:51:08,611 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 10:51:08,612 INFO Retrying email send in 2 seconds...
+2025-11-27 10:51:10,616 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 10:51:10,624 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 10:51:10,624 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 13:40:45,517 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 13:40:45,642 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 13:40:45,644 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 13:40:48,677 ERROR Error fetching metadata: HTTPSConnectionPool(host='ssh.datastations.nl', port=443): Max retries exceeded with url: /citation?persistentId=doi:10.17026/SS/C9KXL3 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10bd780e0>, 'Connection to ssh.datastations.nl timed out. (connect timeout=3)'))
+2025-11-27 13:42:15,291 INFO get doi
+2025-11-27 13:42:15,293 INFO Received DOI: doi:10.17026/SS/C9KXL3
+2025-11-27 13:42:15,296 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 13:42:15,373 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 13:42:15,376 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 13:42:18,380 ERROR Error fetching metadata: HTTPSConnectionPool(host='ssh.datastations.nl', port=443): Max retries exceeded with url: /citation?persistentId=doi:10.17026/SS/C9KXL3 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10b4c1550>, 'Connection to ssh.datastations.nl timed out. (connect timeout=3)'))
+2025-11-27 13:42:18,380 INFO Request duration: 3.0884 seconds
+2025-11-27 13:57:47,678 INFO get doi
+2025-11-27 13:57:47,679 INFO Received DOI: doi:10.17026/SS/C9KXL3
+2025-11-27 13:57:47,683 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 13:57:47,964 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 13:57:47,967 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 13:57:48,157 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 13:57:48,590 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 13:57:48,592 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 13:57:48,593 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 13:57:48,594 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 13:57:48,594 INFO Return metadata files for doi:10.17026/SS/C9KXL3
+2025-11-27 13:57:48,595 INFO Request duration: 0.9164 seconds
+2025-11-27 13:57:48,596 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 13:57:48,777 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338
+2025-11-27 13:57:57,393 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 13:57:57,790 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 13:57:57,793 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 13:57:57,954 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 13:57:58,286 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 13:57:58,287 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 13:57:58,289 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 13:57:58,289 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 13:57:58,290 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 13:57:58,510 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338
+2025-11-27 14:19:49,838 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:23:38,378 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:23:38,380 DEBUG Using selector: KqueueSelector
+2025-11-27 14:23:38,394 INFO start up
+2025-11-27 14:23:38,473 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 14:23:38,473 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 14:23:38,473 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 14:23:38,498 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 14:23:38,499 INFO Retrying email send in 2 seconds...
+2025-11-27 14:23:40,504 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 14:23:40,521 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 14:23:40,521 INFO Retrying email send in 2 seconds...
+2025-11-27 14:23:42,525 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 14:23:42,538 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 14:23:42,538 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 14:27:14,438 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:33:06,822 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:34:30,180 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:38:50,869 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:38:58,875 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:39:49,670 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 14:39:53,309 DEBUG Using selector: KqueueSelector
+2025-11-27 14:39:53,372 INFO start up
+2025-11-27 14:39:53,403 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 14:39:53,403 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 14:39:53,405 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 14:39:53,426 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 14:39:53,426 INFO Retrying email send in 2 seconds...
+2025-11-27 14:39:55,431 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 14:39:55,453 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 14:39:55,453 INFO Retrying email send in 2 seconds...
+2025-11-27 14:39:57,456 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 14:39:57,468 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 14:39:57,469 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 15:05:18,896 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 15:05:19,012 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:05:19,016 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:05:19,149 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:05:19,625 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 15:05:19,631 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 15:05:19,632 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 15:05:19,632 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 15:05:21,581 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:05:21,724 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338
+2025-11-27 15:17:30,434 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 15:17:30,916 DEBUG Using selector: KqueueSelector
+2025-11-27 15:17:30,926 INFO start up
+2025-11-27 15:17:30,938 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 15:17:30,938 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 15:17:30,939 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:17:30,951 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:17:30,951 INFO Retrying email send in 2 seconds...
+2025-11-27 15:17:32,952 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:17:32,963 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:17:32,963 INFO Retrying email send in 2 seconds...
+2025-11-27 15:17:34,968 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:17:34,979 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:17:34,980 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 15:17:37,767 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 15:17:37,966 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:17:37,968 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:17:41,000 ERROR Error fetching metadata: HTTPSConnectionPool(host='ssh.datastations.nl', port=443): Max retries exceeded with url: /citation?persistentId=doi:10.17026/SS/C9KXL3 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x113cc5a60>, 'Connection to ssh.datastations.nl timed out. (connect timeout=3)'))
+2025-11-27 15:17:51,988 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 15:17:52,717 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:17:52,719 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:17:55,723 ERROR Error fetching metadata: HTTPSConnectionPool(host='ssh.datastations.nl', port=443): Max retries exceeded with url: /citation?persistentId=doi:10.17026/SS/C9KXL3 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x113cc5760>, 'Connection to ssh.datastations.nl timed out. (connect timeout=3)'))
+2025-11-27 15:18:01,074 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 15:18:01,289 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:18:01,292 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:18:01,400 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:18:01,759 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 15:18:01,761 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 15:18:01,762 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 15:18:01,762 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 15:18:01,764 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:18:01,960 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338
+2025-11-27 15:19:03,057 DEBUG Using selector: KqueueSelector
+2025-11-27 15:19:03,070 INFO start up
+2025-11-27 15:19:03,209 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 15:19:03,210 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 15:19:03,211 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:19:03,236 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:19:03,236 INFO Retrying email send in 2 seconds...
+2025-11-27 15:19:05,241 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:19:05,255 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:19:05,255 INFO Retrying email send in 2 seconds...
+2025-11-27 15:19:07,259 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:19:07,271 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:19:07,271 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 15:32:13,699 INFO get doi
+2025-11-27 15:32:13,701 INFO Received DOI: doi:10.17026/SS/C9KXL3
+2025-11-27 15:32:13,712 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 15:32:13,872 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:32:13,874 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:32:14,062 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 15:32:14,425 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 15:32:14,426 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 15:32:14,428 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 15:32:14,429 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 15:32:14,429 INFO Return metadata files for doi:10.17026/SS/C9KXL3
+2025-11-27 15:32:14,429 INFO Request duration: 0.7294 seconds
+2025-11-27 15:32:14,430 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 15:32:14,664 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338
+2025-11-27 15:33:54,853 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 15:33:55,201 DEBUG https://doi.org:443 "HEAD /10.34894/CK1DIY HTTP/1.1" 302 0
+2025-11-27 15:33:55,206 DEBUG Starting new HTTPS connection (1): dataverse.nl:443
+2025-11-27 15:33:55,536 DEBUG https://dataverse.nl:443 "HEAD /citation?persistentId=doi:10.34894/CK1DIY HTTP/1.1" 302 0
+2025-11-27 15:33:55,817 DEBUG https://dataverse.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.34894/CK1DIY HTTP/1.1" 200 0
+2025-11-27 15:33:55,818 INFO Redirect from https://doi.org/10.34894/CK1DIY to https://dataverse.nl/dataset.xhtml?persistentId=doi:10.34894/CK1DIY
+2025-11-27 15:33:55,819 INFO Resolve service for netloc 'dataverse.nl'
+2025-11-27 15:33:55,819 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 15:33:55,820 DEBUG Starting new HTTPS connection (1): dataverse.nl:443
+2025-11-27 15:33:55,956 DEBUG https://dataverse.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.34894/CK1DIY HTTP/1.1" 200 6179
+2025-11-27 15:51:15,293 DEBUG Using selector: KqueueSelector
+2025-11-27 15:51:15,304 INFO start up
+2025-11-27 15:51:15,330 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 15:51:15,330 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 15:51:15,330 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:51:15,353 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:51:15,353 INFO Retrying email send in 2 seconds...
+2025-11-27 15:51:17,354 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:51:17,362 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:51:17,363 INFO Retrying email send in 2 seconds...
+2025-11-27 15:51:19,367 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:51:19,378 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:51:19,379 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 15:51:31,317 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 15:51:31,872 DEBUG Using selector: KqueueSelector
+2025-11-27 15:51:31,883 INFO start up
+2025-11-27 15:51:31,906 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 15:51:31,906 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 15:51:31,907 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:51:31,973 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:51:31,973 INFO Retrying email send in 2 seconds...
+2025-11-27 15:51:33,975 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:51:33,985 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:51:33,985 INFO Retrying email send in 2 seconds...
+2025-11-27 15:51:35,989 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:51:36,013 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:51:36,015 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 15:59:03,915 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 15:59:04,410 DEBUG Using selector: KqueueSelector
+2025-11-27 15:59:04,420 INFO start up
+2025-11-27 15:59:04,450 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 15:59:04,450 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 15:59:04,451 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:59:04,469 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:59:04,469 INFO Retrying email send in 2 seconds...
+2025-11-27 15:59:06,471 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:59:06,481 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:59:06,481 INFO Retrying email send in 2 seconds...
+2025-11-27 15:59:08,485 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 15:59:08,495 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 15:59:08,495 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 16:13:16,617 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 16:13:17,088 DEBUG Using selector: KqueueSelector
+2025-11-27 16:13:17,098 INFO start up
+2025-11-27 16:13:17,192 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 16:13:17,192 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 16:13:17,193 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:13:17,217 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:13:17,217 INFO Retrying email send in 2 seconds...
+2025-11-27 16:13:19,222 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:13:19,244 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:13:19,245 INFO Retrying email send in 2 seconds...
+2025-11-27 16:13:21,246 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:13:21,257 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:13:21,257 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 16:14:43,384 INFO get doi
+2025-11-27 16:14:43,384 INFO Received DOI: batch/pids
+2025-11-27 16:14:43,386 ERROR Error fetching metadata: 'batch/pids' is not a correct resource identifier (e.g. a URL, DOI, Handle)
+2025-11-27 16:14:43,386 INFO Request duration: 0.0021 seconds
+2025-11-27 16:15:02,705 INFO get doi
+2025-11-27 16:15:02,705 INFO Received DOI: batch/pids
+2025-11-27 16:15:02,705 ERROR Error fetching metadata: 'batch/pids' is not a correct resource identifier (e.g. a URL, DOI, Handle)
+2025-11-27 16:15:02,705 INFO Request duration: 0.0006 seconds
+2025-11-27 16:15:21,679 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 16:15:24,807 DEBUG Using selector: KqueueSelector
+2025-11-27 16:15:24,868 INFO start up
+2025-11-27 16:15:24,895 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 16:15:24,895 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 16:15:24,897 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:15:24,917 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:15:24,917 INFO Retrying email send in 2 seconds...
+2025-11-27 16:15:26,921 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:15:26,936 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:15:26,937 INFO Retrying email send in 2 seconds...
+2025-11-27 16:15:28,942 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:15:28,958 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:15:28,964 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 16:15:29,880 INFO get doi
+2025-11-27 16:15:29,880 INFO Received DOI: batch/pids
+2025-11-27 16:15:29,883 ERROR Error fetching metadata: 'batch/pids' is not a correct resource identifier (e.g. a URL, DOI, Handle)
+2025-11-27 16:15:29,883 INFO Request duration: 0.0027 seconds
+2025-11-27 16:16:05,980 INFO get doi
+2025-11-27 16:16:05,981 INFO Received DOI: batch/pids
+2025-11-27 16:16:05,981 ERROR Error fetching metadata: 'batch/pids' is not a correct resource identifier (e.g. a URL, DOI, Handle)
+2025-11-27 16:16:05,981 INFO Request duration: 0.0008 seconds
+2025-11-27 16:16:08,710 INFO get doi
+2025-11-27 16:16:08,710 INFO Received DOI: batch/pids
+2025-11-27 16:16:08,714 ERROR Error fetching metadata: 'batch/pids' is not a correct resource identifier (e.g. a URL, DOI, Handle)
+2025-11-27 16:16:08,714 INFO Request duration: 0.0039 seconds
+2025-11-27 16:17:15,385 INFO get doi
+2025-11-27 16:17:15,385 INFO Received DOI: batch/pids
+2025-11-27 16:17:15,386 ERROR Error fetching metadata: 'batch/pids' is not a correct resource identifier (e.g. a URL, DOI, Handle)
+2025-11-27 16:17:15,386 INFO Request duration: 0.0017 seconds
+2025-11-27 16:18:00,158 INFO get doi
+2025-11-27 16:18:00,158 INFO Received DOI: doi:10.17026/SS/C9KXL3
+2025-11-27 16:18:00,168 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 16:18:00,472 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 16:18:00,477 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 16:18:00,624 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 16:18:01,020 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 16:18:01,021 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 16:18:01,023 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 16:18:01,023 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 16:18:01,024 INFO Return metadata files for doi:10.17026/SS/C9KXL3
+2025-11-27 16:18:01,024 INFO Request duration: 0.8662 seconds
+2025-11-27 16:18:01,027 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 16:18:01,241 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338
+2025-11-27 16:19:58,428 INFO =====Starting server with 10 workers on port 1966 =====
+2025-11-27 16:19:58,896 DEBUG Using selector: KqueueSelector
+2025-11-27 16:19:58,907 INFO start up
+2025-11-27 16:19:59,030 WARNING Could not connect to Postgres to ensure database exists: could not translate host name "postgres" to address: nodename nor servname provided, or not known
+
+2025-11-27 16:19:59,030 WARNING Database is not reachable; starting in degraded mode (DB operations will fail until the DB is available).
+2025-11-27 16:19:59,031 DEBUG [mail attempt 1/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:19:59,055 WARNING Failed to send email on attempt 1/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:19:59,055 INFO Retrying email send in 2 seconds...
+2025-11-27 16:20:01,060 DEBUG [mail attempt 2/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:20:01,105 WARNING Failed to send email on attempt 2/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:20:01,106 INFO Retrying email send in 2 seconds...
+2025-11-27 16:20:03,111 DEBUG [mail attempt 3/3] Connecting to SMTP maildev:1025 (tls=True)
+2025-11-27 16:20:03,128 WARNING Failed to send email on attempt 3/3: [Errno 8] nodename nor servname provided, or not known
+2025-11-27 16:20:03,128 ERROR All attempts to send email failed (3 attempts)
+2025-11-27 16:20:07,494 DEBUG Starting new HTTPS connection (1): doi.org:443
+2025-11-27 16:20:07,674 DEBUG https://doi.org:443 "HEAD /10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 16:20:07,677 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 16:20:07,801 DEBUG https://ssh.datastations.nl:443 "HEAD /citation?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 302 0
+2025-11-27 16:20:08,203 DEBUG https://ssh.datastations.nl:443 "HEAD /dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 0
+2025-11-27 16:20:08,206 INFO Redirect from https://doi.org/10.17026/SS/C9KXL3 to https://ssh.datastations.nl/dataset.xhtml?persistentId=doi:10.17026/SS/C9KXL3
+2025-11-27 16:20:08,207 INFO Resolve service for netloc 'ssh.datastations.nl'
+2025-11-27 16:20:08,207 INFO Service found: <class 'datahugger.services.DataverseDataset'>
+2025-11-27 16:20:08,208 DEBUG Starting new HTTPS connection (1): ssh.datastations.nl:443
+2025-11-27 16:20:08,396 DEBUG https://ssh.datastations.nl:443 "GET /api/datasets/:persistentId/versions/:latest-published/?persistentId=doi:10.17026/SS/C9KXL3 HTTP/1.1" 200 5338

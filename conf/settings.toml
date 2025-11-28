@@ -23,9 +23,11 @@ mail_use_tls = true
 mail_use_ssl = false
 mail_use_auth = false
 
+reload_enable = true
+
 # Logging
 log_level = 10
-log_file = "./logs/fms.log"
+log_file = "@format {env[BASE_DIR]}/logs/fms.log"
 log_format = '%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s'
 
 # Other
