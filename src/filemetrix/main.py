@@ -170,14 +170,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(pid_fetcher.router, tags=["PID Fetcher"], prefix="")
-app.include_router(repo_discovery.router, tags=["Repo Discovery"], prefix="")
-
-# Health check router (simple DB connectivity check)
-app.include_router(health.router, tags=["Health"], prefix="")
-
-app.include_router(repo_metrics.router, tags=["Repo Metrics"], prefix="")
-
-app.include_router(repo_workflow_controller.router, tags=["Repo Management"], prefix="", dependencies=[Depends(auth_header)])
+# app.include_router(repo_discovery.router, tags=["Repo Discovery"], prefix="")
+#
+# # Health check router (simple DB connectivity check)
+# app.include_router(health.router, tags=["Health"], prefix="")
+#
+# app.include_router(repo_metrics.router, tags=["Repo Metrics"], prefix="")
+#
+# app.include_router(repo_workflow_controller.router, tags=["Repo Management"], prefix="", dependencies=[Depends(auth_header)])
 
 
 @app.get("/", include_in_schema=False)

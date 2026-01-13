@@ -1,20 +1,17 @@
-import asyncio
 import json
 import logging
-import time
 import xml.etree.ElementTree as ET
 from urllib.parse import unquote
 
-import datahugger
+import filefetcher as ff
+from filefetcher import RepositoryNotSupported
 import requests
-from datahugger import RepositoryNotSupportedError
 from datahugger.utils import get_datapublisher_from_doi, get_re3data_repositories
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.responses import Response
 
 from src.filemetrix.infra.commons import app_settings, API_PREFIX
-from src.filemetrix.services import onedata_hugger
 
 router = APIRouter(prefix=API_PREFIX)
 
@@ -90,23 +87,16 @@ async def retrieve_repo_info(pid: str):
 
 
 @router.get("/extensions/{pid:path}",tags=["PID Fetcher"],)
-async def get_extensions(pid: str):
+def get_extensions(pid: str):
     decoded_pid = unquote(pid).replace("doi:", "")
     try:
-        metadata = await asyncio.to_thread(datahugger.info, decoded_pid, {"type": "file"})
-        extensions = set()
-        for file in metadata.files:
-            raw_metadata = file.get('raw_metadata', {})
-            content_type = raw_metadata.get('contentType')
-            if content_type:
-                ext = content_type.split('/')[-1]
-                extensions.add(ext)
+        extensions = ff.file_extensions(decoded_pid)
         return JSONResponse(status_code=200, content={"extensions": list(extensions)})
-    except RepositoryNotSupportedError as e:
+    except RepositoryNotSupported as e:
         logging.error(f"Repository not supported: {e}")
         raise HTTPException(status_code=400, detail="Repository not supported")
     except Exception as e:
-        logging.error(f"Error fetching metadata: {e}")
+        logging.info(f"Error fetching metadata: {e}")
         raise HTTPException(status_code=500, detail="Error fetching metadata")
 
 @router.get(
@@ -115,45 +105,14 @@ async def get_extensions(pid: str):
     summary="Fetch metadata files for a given PID",
     description="Retrieves metadata files for the provided persistent identifier (PID). Optionally allows downloading the files.",
     tags=["PID Fetcher"])
-async def get_pid(pid: str):
-    start_time = time.perf_counter()
-    logging.info("get doi")
+def get_pid(pid: str):
     decoded_doi = unquote(pid)
-    print(f"Received DOI: {decoded_doi}")
-    logging.info(f"Received DOI: {decoded_doi}")
     try:
-        metadata = await asyncio.to_thread(datahugger.info, decoded_doi, {"type": "file"})
-        # metadata =datahugger.info(decoded_doi)
-    except RepositoryNotSupportedError as e:
-        # fall-back and try to resolve the identifier as Onedata dataset
-        metadata = onedata_hugger.info(decoded_doi)
-        if not metadata:
-            duration = time.perf_counter() - start_time
-            if duration > 30:
-                logging.warning(f"Request duration exceeded 30 seconds: {duration:.4f} seconds")
-                print(f"WARNING: Request duration exceeded 30 seconds: {duration:.4f} seconds")
-            logging.error(f"Repository not supported: {e}")
-            logging.info(f"Request duration: {duration:.4f} seconds")
-            return JSONResponse(
-                status_code=400,
-                content={"error": "Repository not supported", "message": str(e), "duration": duration}
-            )
+        metadata = ff.file_raw_records(decoded_doi)
+        return JSONResponse(status_code=200, content={"files": metadata["files"]})
+    except RepositoryNotSupported as e:
+        logging.error(f"Repository not supported: {e}")
+        raise HTTPException(status_code=400, detail="Repository not supported")
     except Exception as e:
-        duration = time.perf_counter() - start_time
-        if duration > 30:
-            logging.warning(f"Request duration exceeded 30 seconds: {duration:.4f} seconds")
-            print(f"WARNING: Request duration exceeded 30 seconds: {duration:.4f} seconds")
-        logging.error(f"Error fetching metadata: {e}")
-        logging.info(f"Request duration: {duration:.4f} seconds")
-        return JSONResponse(
-            status_code=500,
-            content={"error": "Repository not supported", "message": str(e), "duration": duration}
-        )
-    logging.info(f"Return metadata files for {decoded_doi}")
-    duration = time.perf_counter() - start_time
-    if duration > 30:
-        logging.warning(f"Request duration exceeded 30 seconds: {duration:.4f} seconds")
-        print(f"WARNING: Request duration exceeded 30 seconds: {duration:.4f} seconds")
-    logging.info(f"Request duration: {duration:.4f} seconds")
-    print(f"Request duration: {duration:.4f} seconds")
-    return {"files": metadata.files}
+        logging.info(f"Error fetching metadata: {e}")
+        raise HTTPException(status_code=500, detail="Error fetching metadata")

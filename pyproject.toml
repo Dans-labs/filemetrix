@@ -10,6 +10,7 @@ dependencies = [
     "asyncio>=3.4.3",
     "datahugger",
     "dynaconf>=3.2.11",
+    "filefetcher>=0.1.0.dev0",
     "psycopg2-binary>=2.9.10",
     "requests>=2.32.4",
     "sickle>=0.7.0",
@@ -17,3 +18,4 @@ dependencies = [
 ]
 [tool.uv.sources]
 datahugger = { git = "https://github.com/dans-labs/datahugger.git", rev = "main" }
+filefetcher = { git = "https://github.com/dans-labs/filefetcher.git", rev = "master" }
