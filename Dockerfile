@@ -28,9 +28,10 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 
 # Create and activate virtual environment
-RUN python -m venv .venv
+# RUN python -m venv .venv
+# RUN uv venv .venv
 ENV APP_NAME="Filemetrix Service"
-ENV PATH="/home/akmi/fms/.venv/bin:$PATH"
+# ENV PATH="/home/akmi/fms/.venv/bin:$PATH"
 # Copy the application into the container.
 COPY src ./src
 # Copy the env validator script into the image
@@ -42,7 +43,6 @@ COPY README.md .
 COPY uv.lock .
 
 
-RUN uv venv .venv
 # Install dependencies
 
 RUN uv sync --frozen --no-cache && chown -R akmi:akmi ${BASE_DIR}
