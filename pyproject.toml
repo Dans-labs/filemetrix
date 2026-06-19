@@ -1,6 +1,6 @@
 [project]
 name = "filemetrix"
-version = "0.2.3-dev"
+version = "1.0.0"
 description = "Behind every file is a Metrix. Harvest, identify, and register file-level metadata at scale."
 readme = "README.md"
 title = "FileMetrix Service"
